@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="body">
 
 <head>
     <meta charset="UTF-8">
@@ -7,12 +7,15 @@
     <title>Document</title>
     <!-- <link href="path/to/tailwind.css" rel="stylesheet"> -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/dist/output.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
-        *{
+
+        * {
             /* overflow: hidden; */
             overflow-x: hidden;
         }
+
         html,
         body {
             padding: 0;
@@ -189,38 +192,168 @@
             font-size: 3rem;
 
         }
-        .no{
+
+        .no {
             width: 300px;
             margin: 0px 10vw;
-            
+
         }
+
         .imp b {
             color: red;
         }
+
         @media screen and (max-width: 723px) {
             .centered {
                 font-size: 7.8vw;
             }
-            .hello{
+
+            .hello {
                 font-size: 7.5vw;
             }
-            #name{
+
+            #name {
                 font-size: 7.5vw;
             }
-            .info{
+
+            .info {
                 width: 80vw;
             }
-            .imp{
+
+            .imp {
                 margin: auto 10px;
             }
-            .ok{
+
+            .ok {
                 margin: 20px 0px;
             }
-            .maininfo{
-            flex-wrap: wrap;
+
+            .maininfo {
+                flex-wrap: wrap;
             }
         }
 
+        .fixed {
+            position: fixed;
+            top: 0px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        .stop{
+            overflow: hidden;
+        }
+
+        .not {
+            display: none;
+        }
+
+        .sow {
+            display: block;
+            position: fixed;
+            top: 0px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .form-box {
+            z-index: +3;
+            max-width: 300px;
+            background: #dcecff;
+            overflow: hidden;
+            border-radius: 16px;
+            color: #010101;
+        }
+
+        .form {
+            /* position: relative; */
+            display: flex;
+            flex-direction: column;
+            padding: 32px 24px 24px;
+            gap: 16px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        /*Form text*/
+        .title {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /*Inputs box*/
+        .form-container {
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #fff;
+            margin: 1rem 0 .5rem;
+            width: 100%;
+        }
+
+        .input {
+            background: none;
+            border: 0;
+            outline: 0;
+            height: 40px;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            font-size: .9rem;
+            padding: 8px 15px;
+        }
+
+        .form-section {
+            padding: 16px;
+            font-size: .85rem;
+            background-color: #e0ecfb;
+            box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+        }
+
+        .form-section a {
+            font-weight: bold;
+            color: #0066ff;
+            transition: color .3s ease;
+        }
+
+        .form-section a:hover {
+            color: #005ce6;
+            text-decoration: underline;
+        }
+
+        /*Button*/
+        .form .button {
+            background-color: #0066ff;
+            color: #fff;
+            border: 0;
+            border-radius: 24px;
+            padding: 10px 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color .3s ease;
+        }
+
+        .form .button:hover {
+            background-color: #005ce6;
+        }
+        .close ,.close2{
+            position: absolute;
+        }
+        .close3 ,.close4{
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -232,20 +365,56 @@
                 <span class="ml-3 text-xl">Logo</span>
             </a>
             <nav class="links">
-                <a class="wlink">Home</a>
-                <a class="wlink">About</a>
-                <a class="wlink">Our services</a>
-                <a class="wlink">Locate</a>
+                <a data-page="Home" class="wlink">Home</a>
+                <a class="wlink" data-page="Aboutus">About</a>
+                <a data-page="Services" class="wlink">Our services</a>
+                <a data-page="Locate" class="wlink">Locate</a>
             </nav>
             <div>
-                <button class="glink">Register
+                <button class="haml glink">Register
                 </button>
-                <button class="glink">log-in</button>
+                <button class="haml2 glink">log-in</button>
             </div>
 
 
         </div>
     </header>
+    <div class="sidebar fixed">
+        <div class="form-box">
+            <form class="form">
+                <button class="close"><a href="#">❌</a></button>
+                <span class="title">Sign up</span>
+                <span class="subtitle">Create a free account with your email.</span>
+                <div class="form-container">
+                    <input type="text" class="input" placeholder="Full Name">
+                    <input type="email" class="input" placeholder="Email">
+                    <input type="password" class="input" placeholder="Password">
+                </div>
+                <button class="button">Sign up</button>
+            </form>
+            <div class="form-section">
+                <p>Have an account? <a class="close3 haml3">Log in</a> </p>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar2 fixed">
+        <div class="form-box">
+            <form class="form">
+                <button class="close2"><a href="#">❌</a></button>
+                <span class="title">Log in</span>
+                <span class="subtitle">Log in to you e-wate using your email</span>
+                <div class="form-container">
+                    <input type="text" class="not input" placeholder="Full Name">
+                    <input type="email" class="input" placeholder="Email">
+                    <input type="password" class="input" placeholder="Password">
+                </div>
+                <button class="button">Log in</button>
+            </form>
+            <div class="form-section">
+                <p>Have an account? <a class="close4 haml4">sign up</a> </p>
+            </div>
+        </div>
+    </div>
     <section>
         <div class="boxmain">
             <div id="box1">
@@ -281,7 +450,7 @@
                     landfills, these toxic chemicals may leach into the soil and
                     hence pose an environmental risk
                 </div>
-                <div  class="flex items-center justify-center no">
+                <div class="flex items-center justify-center no">
                     <img class="ok" src="recycle.jpeg" alt="">
                 </div>
 
@@ -289,7 +458,7 @@
 
         </div>
     </section>
-    <div class="imp"><b>1.</b> About us</div>
+    <div class="imp" id="Aboutus"><b>1.</b> About us</div>
     <section class="text-green-600 body-font">
         <div class="container px-5 py-10 mx-auto flex flex-wrap">
             <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
@@ -361,7 +530,7 @@
             </div>
         </div>
     </section>
-    <div class="imp"><b>2.</b> We provide</div>
+    <div class="imp" id="Services"><b>2.</b>our services</div>
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
 
@@ -551,6 +720,8 @@
             </div>
         </div>
     </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="ewaste.js"></script>
 </body>
 
 </html>
